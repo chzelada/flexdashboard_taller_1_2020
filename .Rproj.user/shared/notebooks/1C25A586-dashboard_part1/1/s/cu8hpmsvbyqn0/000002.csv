@@ -1,0 +1,3 @@
+"0","valueBox(formattable::comma(as.integer(metricas$total_likes)) ,"
+"0","         icon = ""fa-thumbs-up"","
+"0","         color = ""success"")"

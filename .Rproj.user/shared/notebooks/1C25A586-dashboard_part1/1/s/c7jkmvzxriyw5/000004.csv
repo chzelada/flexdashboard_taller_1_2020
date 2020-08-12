@@ -1,0 +1,7 @@
+"0","metricas<-"
+"0","stats %>% "
+"0","  summarise(total_views = sum(viewCount),"
+"0","            total_likes = sum(likeCount),"
+"0","            total_dislike = sum(dislikeCount),"
+"0","            total_favorite = sum(favoriteCount),"
+"0","            total_comments = sum(commentCount))"
