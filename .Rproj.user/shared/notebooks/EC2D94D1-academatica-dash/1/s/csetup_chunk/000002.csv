@@ -1,0 +1,44 @@
+"0","library(flexdashboard)"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(lubridate)"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+"
+"0","library(ggplot2)"
+"0","library(tm)"
+"2","package ‘tm’ was built under R version 4.0.2"
+"2","Loading required package: NLP
+"
+"2","
+Attaching package: ‘NLP’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    annotate
+
+"
+"0","library(wordcloud)"
+"2","package ‘wordcloud’ was built under R version 4.0.2"
+"2","Loading required package: RColorBrewer
+"
