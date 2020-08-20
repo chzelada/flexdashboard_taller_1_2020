@@ -1,0 +1,86 @@
+---
+title: "HTML widgets y Crosstalk"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
+---
+
+```{r librerias, include=FALSE}
+library(flexdashboard)
+library(readr)
+library(dplyr)
+library(leaflet)
+library(DT)
+library(crosstalk)
+```
+
+
+```{r dataset}
+
+earthquakedata <- read_csv("data/earthquakedata.csv")
+```
+
+
+
+# Leaflet
+##
+### Dataset de earthquake
+
+```{r}
+earthquakedata %>% 
+  filter(yr==1995) %>% 
+  DT::datatable()
+```
+
+
+### Lugar de cada terremoto
+
+```{r}
+earthquakedata %>% 
+  filter(yr==1995) %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~lon,
+             lat = ~lat, 
+             label = ~mag )
+```
+
+
+# Crosstalk
+
+```{r}
+eq <- SharedData$new(earthquakedata %>%  filter(yr>=2000) )
+
+```
+
+
+
+##
+###
+
+```{r}
+filter_slider("mag","Magnitud",eq,step = 0.1, width = 250, column = ~mag)
+filter_select("yr","Seleccione el año",eq,group = ~yr, multiple = FALSE)
+```
+
+
+
+```{r}
+eq  %>% 
+  DT::datatable()
+```
+
+
+
+###
+
+```{r}
+eq %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~lon,
+             lat = ~lat, 
+             label = ~mag )
+```
+
