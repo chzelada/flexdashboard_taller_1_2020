@@ -1,0 +1,57 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(flexdashboard)
+library(readr)
+library(dplyr)
+library(leaflet)
+library(DT)
+```
+
+```{r dataset}
+
+earthquakedata <- read_csv("data/earthquakedata.csv")
+```
+
+### Data
+
+```{r}
+earthquakedata %>% 
+  filter(yr==1995) %>% 
+  DT::datatable()
+```
+
+***
+
+En este dataset podemos ver la data de los terremotos del año 1995.
+
+
+### Terremotos mayores
+
+```{r}
+earthquakedata %>% 
+  filter(yr==1995, mag>7.5) %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lng = ~lon,
+             lat = ~lat, 
+             label = ~mag )
+```
+
+
+
+
+***
+
+El mapa podemos ver que los mayores terremotos sucesdieron en los paises de,
+
+- Japon
+- Chile
+- otro
+
